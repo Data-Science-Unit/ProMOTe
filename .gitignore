@@ -1,0 +1,8 @@
+# things of the following sort might go into .gitignore for python:
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints
+
+# or Sphinx documentation:
+docs/_build/
