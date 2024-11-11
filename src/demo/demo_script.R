@@ -6,7 +6,7 @@ output <- "/../../data/demooutput.rds"
 
 # Read training data and source code
 data_train_list <- readRDS(input)
-source("rscripts/ProMOTe_VB.R")
+source("/../ProMOTe_VB.R")
 
 # The data and number of clusters:
 #   d - a NxM matrix containing data about presence of conditions
