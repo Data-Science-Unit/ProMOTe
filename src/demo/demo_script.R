@@ -29,7 +29,7 @@ tau <- data_train_list$tau
 iota <- data_train_list$iota
 N <- data_train_list$N
 M <- data_train_list$M
-K <- 5
+K <- 6
 epsilon <- 0.1
 sex <- data_train_list$sex
 birth_conds <- data_train_list$birth_conds
