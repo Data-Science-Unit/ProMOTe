@@ -20,12 +20,12 @@ base R.
 The `.rds` file contains a named list with the following components:
 
 - `d`: An N x M matrix containing data about the presence of conditions for each individual. Each element represents whether a specific condition is present (1 for presence, 0 for absence).
-- `t`: An N x M matrix containing data about the onset times of conditions for each individual. Each element represents the time at which the condition was observed or diagnosed.
-- `rho`: A vector of length N containing the study start dates for each individual. Each element represents the start date of the study for a corresponding individual.
-- `tau`: A vector of length N containing the study end dates for each individual. Each element represents the end date of the study for a corresponding individual.
+- `t`: An N x M matrix containing data about the onset ages of conditions for each individual. Each element represents the age at which the condition was observed or diagnosed.
+- `rho`: A vector of length N containing the study start age for each individual. Each element represents the age at the start of the study for a corresponding individual.
+- `tau`: A vector of length N containing the study end age for each individual. Each element represents the age at the of the study for a corresponding individual.
 - `iota`: A vector of length N indicating the status of each individual at the time of tau. Each element is a binary indicator, where 1 represents that the individual is alive and 0 represents that the individual is deceased.
 - `N`: An integer representing the number of individuals in the dataset.
-- `K`: An integer representing the number of clusters in the dataset. The clustering might be based on any relevant characteristic or analysis done on the dataset.
+- `K`: An integer representing the number of clusters in the dataset. 
 - `M`: An integer representing the number of conditions in the dataset.
 - `sex`: A vector representing the sex of the individuals in the dataset. This is set to `NULL` if the information is not available.
 - `birth_conds`: A vector containing the column indices in `d` that correspond to conditions which only occur at birth. This is set to `NULL` if there are no such conditions or the information is not available.
@@ -43,10 +43,10 @@ Perform Variational Bayes (VB) updates for the Gaussian latent class model with 
 **Inputs:**
 
 - `d`: A N x M matrix containing data about the presence of conditions.
-- `t`: A N x M matrix containing data about the onset times of conditions.
-- `rho`: A vector of length N containing study start dates.
-- `tau`: A vector of length N containing study end dates.
-- `iota`: A vector of length N indicating if individuals are alive/deceased at time tau.
+- `t`: A N x M matrix containing data about the onset ages of conditions.
+- `rho`: A vector of length N containing study start ages.
+- `tau`: A vector of length N containing study end ages.
+- `iota`: A vector of length N indicating if individuals are alive/deceased at age tau.
 - `hyperparameters`: A list of hyperparameters of the prior.
 - `initial_Cstar`: A N x K matrix containing an initial value to initialize the latent variable `z`.
 - `initial_Dstar`: A N x M matrix containing an initial value to initialize the latent variable `d`.
@@ -102,10 +102,10 @@ Estimate the parameters of the posterior predictive distribution for a new indiv
 - `M_part`: Indices of the individual's partially observed conditions.
 - `M_unobs`: Indices of the individual's unobserved conditions.
 - `d_obs`: A vector containing the absence/presence of the fully observed conditions as 0s and 1s.
-- `t_obs`: A vector containing the onset times of the fully observed conditions.
+- `t_obs`: A vector containing the onset ages of the fully observed conditions.
 - `d_part`: A vector containing the absence/presence of the partially observed conditions as 0s and 1s.
-- `rho`: A vector of length N containing observation start dates.
-- `tau`: A vector of length N containing observation end dates.
+- `rho`: A vector of length N containing observation start ages.
+- `tau`: A vector of length N containing observation end ages.
 - `M`: The number of conditions in the data.
 
 **Outputs:**
@@ -139,7 +139,7 @@ Estimate the probability of conditions occurring in an individual by time T.
 
 - `parameters`: A list of posterior predictive parameters (the output of `VB_gaussian_predictive_density`).
 - `hyperparameters`: A list of hyperparameters of the posterior.
-- `T`: The time by which the conditions should occur.
+- `T`: The age by which the conditions should occur.
 - `tau`: The individual's age at end of observation.
 - `M`: The number of conditions.
 
