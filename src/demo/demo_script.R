@@ -10,10 +10,10 @@ source("../ProMOTe_VB.R")
 
 # The data and number of clusters:
 #   d - a NxM matrix containing data about presence of conditions
-#   t - a NxM matrix containing data about onset times of conditions
-#   rho - a length N vector containing study start dates
-#   tau - a length N vector containing study end dates
-#   iota - a length N vector indicating if individuals are alive/deceased at time tau
+#   t - a NxM matrix containing data about onset ages of conditions
+#   rho - a length N vector containing study start ages
+#   tau - a length N vector containing study end ages
+#   iota - a length N vector indicating if individuals are alive/deceased at age tau
 #   N - the number of individuals in the data
 #   K - the number of clusters
 #   M - the number of conditions in the data
