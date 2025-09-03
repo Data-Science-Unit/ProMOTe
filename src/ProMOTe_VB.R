@@ -4,10 +4,10 @@ VB_gaussian_update <- function(d, t, rho, tau, iota, hyperparameters, initial_Cs
   #
   # #Inputs:
   # d - a NxM matrix containing data about presence of conditions
-  # t - a NxM matrix containing data about onset times of conditions
-  # rho - a length N vector containing study start dates
-  # tau - a length N vector containing study end dates
-  # iota - a length N vector indicating if individuals are alive/deceased at time tau
+  # t - a NxM matrix containing data about onset ages of conditions
+  # rho - a length N vector containing study start ages
+  # tau - a length N vector containing study end ages
+  # iota - a length N vector indicating if individuals are alive/deceased at age tau
   # hyperparameters - a list of hyperparameters of the prior
   # initial_Cstar - a NxK matrix containing an initial value to initialise the latent variable z
   # initial_Dstar - a NxM matrix containing an initial value to initialise the latent variable d
@@ -341,3 +341,4 @@ VB_gaussian_update <- function(d, t, rho, tau, iota, hyperparameters, initial_Cs
   return(list(posterior.parameters = list(theta_star = theta_star, a_star = a_star, b_star = b_star, u_star = u_star, v_star = v_star, alpha_star = alpha_star, beta_star = beta_star, C_star = C_star, p_star = p_star, q_star = q_star, r_star = r_star, D_star = D_star), n_steps = n_steps, final_step_size = param_difference, elbo = elbos[1:n_steps], cond_list = cond_list))
   
 }
+
